@@ -1,0 +1,148 @@
+<div>
+  <div>
+    <h1>
+      List of all positions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new position
+    </h2>
+
+    <form action="/insert_position" method="post">
+      <div>
+        <label for="board_state_box">
+          Board state
+        </label>
+
+        <textarea id="board_state_box" name="query_board_state" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="best_move_box">
+          Best move
+        </label>
+
+        <input type="text" id="best_move_box" name="query_best_move">
+      </div>
+
+      <div>
+        <label for="evaluation_box">
+          Evaluation
+        </label>
+
+        <input type="text" id="evaluation_box" name="query_evaluation">
+      </div>
+
+      <div>
+        <input type="checkbox" id="whose_turn_box" name="query_whose_turn" value="1">
+
+        <label for="whose_turn_box">Whose turn</label>
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <input type="text" id="notes_box" name="query_notes">
+      </div>
+
+      <button>
+        Create position
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Board state
+        </th>
+
+        <th>
+          Best move
+        </th>
+
+        <th>
+          Evaluation
+        </th>
+
+        <th>
+          Whose turn
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_positions.each do |a_position| %>
+      <tr>
+        <td>
+          <%= a_position.id %>
+        </td>
+
+        <td>
+          <%= a_position.board_state %>
+        </td>
+
+        <td>
+          <%= a_position.best_move %>
+        </td>
+
+        <td>
+          <%= a_position.evaluation %>
+        </td>
+
+        <td>
+          <%= a_position.whose_turn %>
+        </td>
+
+        <td>
+          <%= a_position.notes %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_position.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_position.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/positions/<%= a_position.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Collection #<%= @the_collection.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/collections">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_collection/<%= @the_collection.id %>">
+          Delete collection
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_collection.name %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_collection.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_collection.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_collection.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit collection
+    </h2>
+
+    <form action="/modify_collection/<%= @the_collection.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_collection.name %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_collection.user_id %>">
+      </div>
+
+      <button>
+        Update collection
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
