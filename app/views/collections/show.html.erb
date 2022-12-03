@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Collection #<%= @the_collection.id %> details
+      <%= @the_collection.name %>
     </h1>
 
     <div>
@@ -19,18 +19,13 @@
     </div>
 
     <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_collection.name %>
-      </dd>
+
 
       <dt>
-        User
+        Owner
       </dt>
       <dd>
-        <%= @the_collection.user_id %>
+        <%= @the_collection.user.email %>
       </dd>
 
       <dt>

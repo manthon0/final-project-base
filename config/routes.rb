@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get("/", { :controller => "collections", :action => "index" })
 
   # Routes for the Collection position resource:
 

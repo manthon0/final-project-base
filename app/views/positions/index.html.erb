@@ -17,7 +17,7 @@
     <form action="/insert_position" method="post">
       <div>
         <label for="board_state_box">
-          Board state
+          Board state in FEN format
         </label>
 
         <textarea id="board_state_box" name="query_board_state" rows="3"></textarea>
@@ -42,7 +42,7 @@
       <div>
         <input type="checkbox" id="whose_turn_box" name="query_whose_turn" value="1">
 
-        <label for="whose_turn_box">Whose turn</label>
+        <label for="whose_turn_box">White to move? (leave unchecked if Black to move)</label>
       </div>
 
       <div>
@@ -74,18 +74,6 @@
         </th>
 
         <th>
-          Best move
-        </th>
-
-        <th>
-          Evaluation
-        </th>
-
-        <th>
-          Whose turn
-        </th>
-
-        <th>
           Notes
         </th>
 
@@ -109,18 +97,6 @@
 
         <td>
           <%= a_position.board_state %>
-        </td>
-
-        <td>
-          <%= a_position.best_move %>
-        </td>
-
-        <td>
-          <%= a_position.evaluation %>
-        </td>
-
-        <td>
-          <%= a_position.whose_turn %>
         </td>
 
         <td>

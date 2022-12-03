@@ -16,6 +16,20 @@
   </head>
 
   <body>
+
+    <ul>
+      <li><a href="/collections">All Collections</a></li>
+      <li><a href="/positions">All Positions</a></li>
+      
+      <% if session.fetch(:user_id) == nil %>
+        <li><a href="/user_sign_in">User Sign-in</a></li>
+        <li><a href="/user_sign_up">User Sign-up</a></li>
+      <% else%>
+        <li><a href="/user_sign_out">Sign out</a></li>
+        <li><%= session.fetch(:user_id) %></li>
+      <% end %>
+    </ul>
+
     <%= yield %>
   </body>
 </html>

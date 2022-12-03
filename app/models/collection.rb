@@ -12,5 +12,6 @@ class Collection < ApplicationRecord
 
   has_many(:collection_positions, { :class_name => "CollectionPosition", :foreign_key => "collection_id", :dependent => :destroy })
   has_many(:positions, { :through => :collection_positions, :source => :position })
+  belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id" })
 
 end
