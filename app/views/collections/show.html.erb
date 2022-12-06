@@ -54,16 +54,38 @@
     <h2>
       Positions in this collection
     </h2>
+      
+    <table border="1">
+      <tr>
 
+        <th>
+          Board state
+        </th>
 
-      <button>
-        View position
-      </button>
+        <th>
+          Notes
+        </th>
 
-      <button>
-        Remove from collection
-      </button>
-    </form>
+        <th>
+          
+        </th>
+        <%if @the_collection.user_id == session.fetch(:user_id) %>
+        <th>
+          
+        </th>
+<%end%>
+      </tr>
+
+      <%@matching_collection_positions.each do |a_cp|%>
+        <tr>
+        <td><%=Position.where({:id => a_cp.position_id}).first.board_state%></td>
+        <td></td>
+        <td><a href="/positions/<%= a_cp.position_id %>">View position</a></td>
+        <%if @the_collection.user_id == session.fetch(:user_id) %>
+        <td><a href="/delete_collection_position/<%=a_cp.id%>">Remove from collection</a></td>
+        <%end%>
+        </tr>
+      <%end%>
   </div>
 </div>
 

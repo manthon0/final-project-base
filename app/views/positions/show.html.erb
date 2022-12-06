@@ -64,6 +64,8 @@
   </div>
 </div>
 
+<% if session.fetch(:user_id) != nil %>
+
 <hr>
 
 
@@ -73,7 +75,21 @@
       Add to my collection
     </h2>
 
-    <form action="/modify_position/<%= @the_position.id %>"  method="post" >
+    <form action="/insert_collection_position/"  method="post">
+      <div>
+        <label for="collection_id_box">
+          Collection
+        </label>
+        <select name = "query_collection_id">
+        <% Collection.where({:user_id => session.fetch(:user_id)}).each do |a_collection|%>
+        <option value = "<%=a_collection.id%>">
+        <%=a_collection.name%>
+        <%end%>
+        </option>
+        <input name = "query_position_id" value = "<%=@the_position.id%>" type=hidden>
+        </option>
+        </select>
+      </div>
 
       <button>
         Add this position
@@ -83,3 +99,4 @@
 </div>
 
 <hr>
+<%end%>

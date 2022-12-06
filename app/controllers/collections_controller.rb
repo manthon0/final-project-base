@@ -9,9 +9,13 @@ class CollectionsController < ApplicationController
 
   def my_index
     matching_collections = Collection.where(:user_id => session.fetch(:user_id))
-
     @list_of_my_collections = matching_collections.order({ :created_at => :desc })
-
+    
+    #get positions in a given collection to display on collection show page
+    #the_id = params.fetch("path_id")
+    #matching_positions = Position.where({:collection_id => the_id})
+    #@list_of_positions = matching_positions.order({ :created_at => :desc })
+  
     render({ :template => "collections/my_index.html.erb" })
   end
   
@@ -22,6 +26,9 @@ class CollectionsController < ApplicationController
 
     @the_collection = matching_collections.at(0)
 
+    #get positions in collection
+    @matching_collection_positions = CollectionPosition.where({:collection_id => the_id})
+    #@list_of_my_positions = 
     render({ :template => "collections/show.html.erb" })
   end
 

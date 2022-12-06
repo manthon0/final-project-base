@@ -24,9 +24,9 @@ class CollectionPositionsController < ApplicationController
 
     if the_collection_position.valid?
       the_collection_position.save
-      redirect_to("/collection_positions", { :notice => "Collection position created successfully." })
+      redirect_to("/collections/" + the_collection_position.collection_id.to_s, { :notice => "Position added successfully." })
     else
-      redirect_to("/collection_positions", { :alert => the_collection_position.errors.full_messages.to_sentence })
+      redirect_to("/collections/" + the_collection_position.collection_id.to_s, { :alert => the_collection_position.errors.full_messages.to_sentence })
     end
   end
 
@@ -48,9 +48,9 @@ class CollectionPositionsController < ApplicationController
   def destroy
     the_id = params.fetch("path_id")
     the_collection_position = CollectionPosition.where({ :id => the_id }).at(0)
-
+    the_collection_id = the_collection_position.collection_id
     the_collection_position.destroy
 
-    redirect_to("/collection_positions", { :notice => "Collection position deleted successfully."} )
+    redirect_to("/collections/" + the_collection_id.to_s, { :notice => "Position removed successfully."} )
   end
 end

@@ -6,6 +6,12 @@ class PositionsController < ApplicationController
 
     render({ :template => "positions/index.html.erb" })
   end
+#get positions in a given collection to display on collection show page
+#def collection_index
+ # the_id = params.fetch("path_id")
+ # matching_positions = Position.where({:collection_id => the_id})
+ # @list_of_positions = matching_positions.order({ :created_at => :desc })
+#end
 
   def show
     the_id = params.fetch("path_id")

@@ -16,9 +16,12 @@
   </head>
 
   <body>
-
+    <%=notice%>
+    <%=alert%>
     <ul>
+      <% if session.fetch(:user_id) != nil%>
       <li><a href="/my_collections">My Collections</a></li>
+      <%end%>
       <li><a href="/collections">All Collections</a></li>
       <li><a href="/positions">All Positions</a></li>
       
@@ -28,7 +31,6 @@
       <% else%>
         <li><a href="/user_sign_out">Sign out</a></li>
         <li>Signed in as <%=@current_user.email%></li>
-        <li><%= session.fetch(:user_id) %></li>
       <% end %>
     </ul>
 
