@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_03_215008) do
+ActiveRecord::Schema.define(version: 2022_12_06_220458) do
 
   create_table "collection_positions", force: :cascade do |t|
     t.integer "collection_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_12_03_215008) do
     t.string "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "stage"
   end
 
   create_table "users", force: :cascade do |t|

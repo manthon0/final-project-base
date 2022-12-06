@@ -7,6 +7,7 @@
 #  board_state :text
 #  evaluation  :float
 #  notes       :string
+#  stage       :string
 #  whose_turn  :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

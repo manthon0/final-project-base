@@ -30,7 +30,7 @@ class PositionsController < ApplicationController
     the_position.evaluation = params.fetch("query_evaluation")
     the_position.whose_turn = params.fetch("query_whose_turn", false)
     the_position.notes = params.fetch("query_notes")
-
+    the_position.stage = "https://fen2png.com/api/?fen=" + params.fetch("query_board_state").gsub(" ","%20") + "&raw=true"
     if the_position.valid?
       the_position.save
       redirect_to("/positions", { :notice => "Position created successfully." })
