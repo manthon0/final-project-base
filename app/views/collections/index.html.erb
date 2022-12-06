@@ -23,14 +23,6 @@
         <input type="text" id="name_box" name="query_name">
       </div>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
-
       <button>
         Create collection
       </button>
@@ -43,9 +35,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Name
@@ -69,16 +58,14 @@
 
       <% @list_of_collections.each do |a_collection| %>
       <tr>
-        <td>
-          <%= a_collection.id %>
-        </td>
+
 
         <td>
           <%= a_collection.name %>
         </td>
 
         <td>
-          <%= a_collection.user_id %>
+          <%= a_collection.user.email %>
         </td>
 
         <td>

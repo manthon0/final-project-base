@@ -10,12 +10,13 @@
           Go back
         </a>
       </div>
-
+<%if @the_collection.user_id == session.fetch(:user_id) %>
       <div>
         <a href="/delete_collection/<%= @the_collection.id %>">
           Delete collection
         </a>
       </div>
+<% end %>
     </div>
 
     <dl>
@@ -51,28 +52,16 @@
 <div>
   <div>
     <h2>
-      Edit collection
+      Positions in this collection
     </h2>
 
-    <form action="/modify_collection/<%= @the_collection.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_collection.name %>">
-      </div>
-
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_collection.user_id %>">
-      </div>
 
       <button>
-        Update collection
+        View position
+      </button>
+
+      <button>
+        Remove from collection
       </button>
     </form>
   </div>

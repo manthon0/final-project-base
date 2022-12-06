@@ -7,6 +7,7 @@ class CollectionsController < ApplicationController
     render({ :template => "collections/index.html.erb" })
   end
 
+  
   def show
     the_id = params.fetch("path_id")
 
@@ -20,7 +21,7 @@ class CollectionsController < ApplicationController
   def create
     the_collection = Collection.new
     the_collection.name = params.fetch("query_name")
-    the_collection.user_id = params.fetch("query_user_id")
+    the_collection.user_id = session.fetch(:user_id)
 
     if the_collection.valid?
       the_collection.save

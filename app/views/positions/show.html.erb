@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Position #<%= @the_position.id %> details
+      Position details
     </h1>
 
     <div>
@@ -10,13 +10,6 @@
           Go back
         </a>
       </div>
-
-      <div>
-        <a href="/delete_position/<%= @the_position.id %>">
-          Delete position
-        </a>
-      </div>
-    </div>
 
     <dl>
       <dt>
@@ -77,52 +70,13 @@
 <div>
   <div>
     <h2>
-      Edit position
+      Add to my collection
     </h2>
 
     <form action="/modify_position/<%= @the_position.id %>"  method="post" >
-      <div>
-        <label for="board_state_box">
-          Board state
-        </label>
-
-        <textarea id="board_state_box" name="query_board_state"><%= @the_position.board_state %></textarea>
-      </div>
-
-      <div>
-        <label for="best_move_box">
-          Best move
-        </label>
-
-        <input type="text" id="best_move_box" name="query_best_move" value="<%= @the_position.best_move %>">
-      </div>
-
-      <div>
-        <label for="evaluation_box">
-          Evaluation
-        </label>
-
-        <input type="text" id="evaluation_box" name="query_evaluation" value="<%= @the_position.evaluation %>">
-      </div>
-
-      <div>
-        <input type="checkbox" id="whose_turn_box" name="query_whose_turn" value="1" <%= "checked" if @the_position.whose_turn %>>
-
-        <label for="whose_turn_box">
-            Whose turn
-        </label>
-      </div>
-
-      <div>
-        <label for="notes_box">
-          Notes
-        </label>
-
-        <input type="text" id="notes_box" name="query_notes" value="<%= @the_position.notes %>">
-      </div>
 
       <button>
-        Update position
+        Add this position
       </button>
     </form>
   </div>
