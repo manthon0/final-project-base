@@ -28,7 +28,7 @@ Rails.application.routes.draw do
           
   # READ
   get("/collections", { :controller => "collections", :action => "index" })
-  
+  get("/my_collections", { :controller => "collections", :action => "my_index" })
   get("/collections/:path_id", { :controller => "collections", :action => "show" })
   
   # UPDATE

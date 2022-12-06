@@ -18,6 +18,7 @@
   <body>
 
     <ul>
+      <li><a href="/my_collections">My Collections</a></li>
       <li><a href="/collections">All Collections</a></li>
       <li><a href="/positions">All Positions</a></li>
       
@@ -26,6 +27,7 @@
         <li><a href="/user_sign_up">User Sign-up</a></li>
       <% else%>
         <li><a href="/user_sign_out">Sign out</a></li>
+        <li>Signed in as <%=@current_user.email%></li>
         <li><%= session.fetch(:user_id) %></li>
       <% end %>
     </ul>

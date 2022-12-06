@@ -7,6 +7,13 @@ class CollectionsController < ApplicationController
     render({ :template => "collections/index.html.erb" })
   end
 
+  def my_index
+    matching_collections = Collection.where(:user_id => session.fetch(:user_id))
+
+    @list_of_my_collections = matching_collections.order({ :created_at => :desc })
+
+    render({ :template => "collections/my_index.html.erb" })
+  end
   
   def show
     the_id = params.fetch("path_id")
